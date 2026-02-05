@@ -1,426 +1,374 @@
 <!DOCTYPE html>
-<html lang="id" class="dark">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & HRD Preview Meta Tags -->
-    <title>AHMAD ROYANI | PRINCIPAL SYSTEMS ARCHITECT</title>
-    <meta name="description" content="Portfolio Profesional Ahmad Royani, S.Kom - Principal Systems Architect & AI Strategy Lead.">
-    <meta property="og:title" content="Ahmad Royani | Portfolio">
-    <meta property="og:description" content="Mendefinisikan ulang infrastruktur digital melalui integrasi kecerdasan otonom.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>CV_AROY_SOEBANK | Ahmad Royani</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #0ea5e9;
-            --primary-glow: rgba(14, 165, 233, 0.15);
-            --bg: #020617;
-            --card: rgba(15, 23, 42, 0.6);
-            --card-border: rgba(255, 255, 255, 0.08);
+            --neon-cyan: #00ffff;
+            --neon-blue: #0ea5e9;
+            --bg-dark: #020617;
+            --pure-white: #ffffff;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
+            font-family: 'JetBrains Mono', monospace;
+            background-color: var(--bg-dark);
             color: #f1f5f9;
             scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            width: 100%;
         }
 
-        .mono { font-family: 'JetBrains Mono', monospace; }
+        /* --- PRECISION FRAME LOCK --- */
+        .vault-box {
+            border: 2px solid rgba(0, 255, 255, 0.4);
+            position: relative;
+            padding: 2rem 0.5rem;
+            width: 100%;
+            max-width: 95vw;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-        /* Subtle Background */
-        .dot-pattern {
+        .vault-box::before { content: ''; position: absolute; top: -6px; left: -6px; width: 18px; height: 18px; border-top: 5px solid var(--neon-cyan); border-left: 5px solid var(--neon-cyan); }
+        .vault-box::after { content: ''; position: absolute; bottom: -6px; right: -6px; width: 18px; height: 18px; border-bottom: 5px solid var(--neon-cyan); border-right: 5px solid var(--neon-cyan); }
+
+        .text-vault-title {
+            font-size: clamp(0.45rem, 2.7vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            text-align: center;
+            white-space: nowrap;
+            color: var(--pure-white);
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
+        }
+
+        /* Background Grid */
+        .grid-bg {
+            background-image: linear-gradient(rgba(0, 255, 255, 0.04) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0, 255, 255, 0.04) 1px, transparent 1px);
+            background-size: 30px 30px;
             position: fixed;
             inset: 0;
-            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
             z-index: -1;
+            mask-image: radial-gradient(circle at 50% 50%, black, transparent 95%);
         }
 
-        /* Modern Glass Card */
-        .glass-card {
-            background: var(--card);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .glass-card:hover {
-            border-color: var(--primary);
-            background: rgba(15, 23, 42, 0.8);
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Responsive Navigation */
-        .nav-container {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 95%;
-            max-width: 800px;
-            z-index: 100;
-        }
-
-        .nav-blur {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 999px;
-            padding: 6px 20px;
-        }
-
-        /* Progress Bar Segments */
-        .segment-bar {
-            display: flex;
-            gap: 3px;
-            height: 4px;
-            width: 100%;
-        }
-
-        .segment {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 2px;
-        }
-
-        .segment.active {
-            background: var(--primary);
-            box-shadow: 0 0 10px var(--primary-glow);
-        }
-
-        /* Project Image Styling */
-        .project-img-wrapper {
-            width: 100%;
-            height: 200px;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            background: #0f172a;
-        }
-
-        .project-img {
-            width: 100%;
+        .hud-card {
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid rgba(0, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             height: 100%;
-            object-fit: cover;
-            opacity: 0.6;
-            transition: all 0.6s ease;
-            filter: grayscale(40%);
+            display: flex;
+            flex-direction: column;
         }
 
-        .glass-card:hover .project-img {
-            opacity: 1;
-            filter: grayscale(0%);
-            transform: scale(1.08);
+        .hud-card:hover {
+            border-color: var(--neon-cyan);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
         }
 
-        @media (max-width: 640px) {
-            .heading-responsive { font-size: 2.75rem !important; }
-            .section-padding { padding: 40px 16px !important; }
-            .nav-container { top: 10px; }
+        .scanner-bar {
+            width: 100%;
+            height: 3px;
+            background: var(--neon-cyan);
+            box-shadow: 0 0 20px var(--neon-cyan);
+            position: absolute;
+            animation: scan 6s linear infinite;
+            z-index: 10;
         }
 
-        .lang-active {
-            background: var(--primary);
-            color: #020617;
-            font-weight: 700;
+        @keyframes scan { 0% { top: 0; opacity: 0; } 50% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+
+        /* MASKING UNTUK MENUTUP "CICI AI" */
+        .photo-mask {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(transparent, var(--bg-dark));
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            font-size: 8px;
+            font-weight: bold;
+            color: var(--neon-cyan);
+            letter-spacing: 2px;
         }
 
-        .viz-line {
-            height: 2px;
-            background: var(--primary);
-            width: 0%;
-            transition: width 2s ease;
-        }
+        .lang-btn { opacity: 0.4; transition: 0.3s; padding: 2px 4px; }
+        .lang-btn.active { opacity: 1; color: var(--neon-cyan); border-bottom: 2px solid var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan); }
     </style>
 </head>
-<body onload="initSystem()">
+<body class="selection:bg-cyan-500/40">
 
-    <div class="dot-pattern"></div>
+    <div class="grid-bg"></div>
 
-    <!-- MODERN NAVIGATION -->
-    <nav class="nav-container no-print">
-        <div class="nav-blur flex justify-between items-center shadow-2xl">
-            <div class="flex items-center gap-3">
-                <div class="relative flex h-2 w-2">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-sky-500"></span>
-                </div>
-                <span class="mono text-[10px] tracking-widest font-bold text-slate-400">ARCHITECT_OS // V10.4</span>
+    <!-- HUD Navigasi -->
+    <nav class="fixed top-0 w-full z-50 p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center bg-slate-900/95 border border-cyan-500/30 backdrop-blur-3xl px-4 py-3 md:px-8 md:py-4 rounded-2xl shadow-2xl">
+            <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_12px_#00ffff]"></div>
+                <span class="text-[9px] md:text-xs font-bold tracking-[0.2em] text-cyan-400 uppercase">CV_AROY_SOEBANK // v19.0</span>
             </div>
             
-            <div class="flex items-center gap-4">
-                <div class="flex bg-black/20 rounded-full p-1 border border-white/5">
-                    <button onclick="setLang('id')" id="btn-id" class="lang-btn px-3 py-1 rounded-full text-[9px] mono transition-all">ID</button>
-                    <button onclick="setLang('en')" id="btn-en" class="lang-btn px-3 py-1 rounded-full text-[9px] mono transition-all">EN</button>
-                    <button onclick="setLang('jp')" id="btn-jp" class="lang-btn px-3 py-1 rounded-full text-[9px] mono transition-all">JP</button>
-                </div>
-                <div class="w-[1px] h-4 bg-white/10 hidden sm:block"></div>
-                <button onclick="window.print()" class="text-slate-400 hover:text-white transition-colors" title="Download PDF">
-                    <i data-lucide="download" class="w-4 h-4"></i>
-                </button>
+            <div class="flex items-center gap-2 md:gap-4 text-[8px] md:text-[11px] font-black border-l border-white/10 pl-2 md:pl-6 uppercase">
+                <button onclick="changeLang('en')" id="btn-en" class="lang-btn">EN</button>
+                <button onclick="changeLang('id')" id="btn-id" class="lang-btn active">ID</button>
+                <button onclick="changeLang('jp')" id="btn-jp" class="lang-btn">JP</button>
+                <button onclick="changeLang('de')" id="btn-de" class="lang-btn">DE</button>
+                <button onclick="changeLang('zh')" id="btn-zh" class="lang-btn">ZH</button>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto px-6 pt-32 pb-24 section-padding">
-        
-        <!-- HERO SECTION -->
-        <header class="mb-24">
-            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                <div class="relative flex-shrink-0 group">
-                    <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-sky-500 to-indigo-500 opacity-20 blur group-hover:opacity-40 transition duration-1000"></div>
-                    <div class="relative w-44 h-44 md:w-56 md:h-56 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center overflow-hidden shadow-2xl">
-                        <span class="text-7xl md:text-8xl font-black text-white italic select-none">AR</span>
-                    </div>
-                </div>
-                <div class="flex-1 text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-sky-500/10 border border-sky-500/20 rounded-full mb-8">
-                        <i data-lucide="shield-check" class="w-3 h-3 text-sky-500"></i>
-                        <span class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-sky-500">Principal Systems Architect</span>
-                    </div>
-                    <h1 class="text-5xl md:text-8xl font-black text-white tracking-tighter mb-8 heading-responsive leading-tight">
-                        Ahmad Royani
-                    </h1>
-                    <div class="viz-line mb-8" id="viz-line"></div>
-                    <p id="txt-manifesto" class="text-slate-400 text-xl md:text-2xl leading-relaxed max-w-3xl font-light italic">
-                        "Mendefinisikan ulang infrastruktur digital melalui integrasi kecerdasan otonom dan skalabilitas sistem tingkat tinggi."
-                    </p>
-                </div>
-            </div>
-        </header>
-
-        <!-- STATS / LOG GRID -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
-            <!-- Skills -->
-            <div class="glass-card p-8">
-                <h3 class="mono text-[10px] uppercase tracking-[0.3em] text-slate-500 mb-8" id="txt-core-1">Technical_Matrix</h3>
-                <div class="space-y-8">
-                    <div class="skill-item" data-value="98">
-                        <div class="flex justify-between text-[11px] mb-3 font-bold"><span>AI_V2V_MESH</span><span class="text-sky-500">98%</span></div>
-                        <div class="segment-bar"></div>
-                    </div>
-                    <div class="skill-item" data-value="95">
-                        <div class="flex justify-between text-[11px] mb-3 font-bold"><span>SCALABILITY</span><span class="text-sky-500">95%</span></div>
-                        <div class="segment-bar"></div>
-                    </div>
-                    <div class="skill-item" data-value="92">
-                        <div class="flex justify-between text-[11px] mb-3 font-bold"><span>CLOUD_ARCH</span><span class="text-sky-500">92%</span></div>
-                        <div class="segment-bar"></div>
-                    </div>
-                </div>
-            </div>
+    <!-- Identity Section -->
+    <header class="pt-32 md:pt-48 pb-16 px-6 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
+        <div class="relative group">
+            <div class="absolute -top-4 -left-4 w-12 h-12 border-t-4 border-l-4 border-cyan-500"></div>
+            <div class="absolute -bottom-4 -right-4 w-12 h-12 border-b-4 border-r-4 border-cyan-500"></div>
             
-            <!-- System Monitor -->
-            <div class="glass-card p-8 lg:col-span-2">
-                <div class="flex justify-between items-center mb-6">
-                    <h3 class="mono text-[10px] uppercase tracking-[0.3em] text-slate-500" id="txt-core-2">Architecture_Diagnostics</h3>
-                    <div id="uptime" class="mono text-[9px] text-sky-500/60 font-bold uppercase tracking-widest">Uptime: 00:00:00</div>
-                </div>
-                <div id="log" class="mono text-[11px] text-slate-500 space-y-2 h-40 overflow-hidden">
-                    <!-- Logs generated via JS -->
+            <div class="relative w-64 h-80 md:w-80 md:h-[480px] rounded-sm overflow-hidden border border-cyan-500/40 bg-slate-900 shadow-[0_0_50px_rgba(0,255,255,0.1)]">
+                <div class="scanner-bar"></div>
+                
+                <img src="https://i.ibb.co/s9z0X5cV/image.jpg" 
+                     alt="Ahmad Royani" 
+                     class="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 transition duration-1000 scale-105 group-hover:scale-100">
+                
+                <!-- ELEMEN UNTUK MENUTUP "CICI AI" -->
+                <div class="photo-mask">
+                    <span class="animate-pulse">ID: AR_212-WQ // SECURE_LOG</span>
                 </div>
             </div>
         </div>
 
-        <!-- PROJECTS SECTION -->
-        <div class="mb-24">
-            <div class="flex items-end justify-between mb-12 border-b border-white/5 pb-8">
-                <h2 class="text-4xl font-black text-white tracking-tight" id="txt-title-exp">Deployment Records</h2>
-                <span class="mono text-[10px] text-slate-500 hidden sm:block">STATUS: ALL_SYSTEMS_GO</span>
+        <div class="flex-1 text-center lg:text-left">
+            <div id="badge" class="mb-4 inline-block bg-cyan-500/10 border border-cyan-500/40 px-4 py-1.5 rounded text-[9px] md:text-[11px] font-black text-cyan-400 tracking-[0.2em] uppercase">CV_AROY_SOEBANK // ELITE_SYSTEM_ARCHITECT</div>
+            <h1 class="text-6xl md:text-9xl font-black mb-4 tracking-tighter uppercase leading-none text-white">AHMAD <br class="hidden sm:block"><span class="text-cyan-400 italic">ROYANI</span></h1>
+            <p id="hero-desc" class="text-base md:text-2xl text-slate-300 mb-10 max-w-2xl font-light leading-relaxed italic border-l-4 border-cyan-500 pl-6">
+                Arsitek Sistem & Lead Developer mengkhususkan diri pada infrastruktur digital cerdas, teknologi medis kuno, dan ekosistem AI terpadu.
+            </p>
+            <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                <a href="#projects" id="btn-vault" class="px-10 py-4 bg-cyan-500 text-slate-950 font-black text-xs uppercase tracking-widest hover:bg-white transition shadow-[0_0_30px_rgba(0,255,255,0.4)]">Access_Repositories</a>
+                <a href="https://wa.me/628123456789" id="btn-contact" class="px-10 py-4 border-2 border-cyan-500 text-neon font-black text-xs uppercase tracking-widest hover:bg-cyan-500/10 transition">Establish_Signal</a>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <!-- Project 1 -->
-                <div class="glass-card group p-6">
-                    <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=1000" alt="AROY AI" class="project-img">
-                    </div>
-                    <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-xl font-extrabold text-white uppercase tracking-tight group-hover:text-sky-400 transition-colors">AROY AI (V2V)</h4>
-                        <span class="text-[9px] mono text-slate-600">ID: AROY_01</span>
-                    </div>
-                    <p id="p1" class="text-slate-400 text-sm leading-relaxed font-light">Framework komunikasi otonom antar kendaraan untuk meningkatkan keselamatan jalan raya melalui transmisi data instan.</p>
-                </div>
+        </div>
+    </header>
 
-                <!-- Project 2 -->
-                <div class="glass-card group p-6">
-                    <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000" alt="SalesApp Elite" class="project-img">
-                    </div>
-                    <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-xl font-extrabold text-white uppercase tracking-tight group-hover:text-sky-400 transition-colors">SalesApp Elite</h4>
-                        <span class="text-[9px] mono text-slate-600">ID: ERP_99</span>
-                    </div>
-                    <p id="p2" class="text-slate-400 text-sm leading-relaxed font-light">Sistem ERP premium dengan sinkronisasi cloud real-time, manajemen ritel, dan infrastruktur database aman.</p>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="glass-card group p-6">
-                    <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000" alt="CleanArmor" class="project-img">
-                    </div>
-                    <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-xl font-extrabold text-white uppercase tracking-tight text-emerald-400">CleanArmor Pro X1</h4>
-                        <span class="text-[9px] mono text-slate-600">ID: ROBOT_X</span>
-                    </div>
-                    <p id="p3" class="text-slate-400 text-sm leading-relaxed font-light">Otomatisasi sanitasi industri menggunakan teknologi ozon dan uap kering melalui integrasi perangkat lunak cerdas.</p>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="glass-card group p-6">
-                    <div class="project-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1000" alt="Zhongyi Master" class="project-img">
-                    </div>
-                    <div class="flex items-center justify-between mb-4">
-                        <h4 class="text-xl font-extrabold text-white uppercase tracking-tight text-yellow-400">Zhongyi Master</h4>
-                        <span class="text-[9px] mono text-slate-600">ID: MED_AI</span>
-                    </div>
-                    <p id="p4" class="text-slate-400 text-sm leading-relaxed font-light">Aplikasi diagnostik medis integratif berbasis standar pengobatan tradisional menggunakan logika sistem pakar.</p>
-                </div>
+    <!-- Project Database (10 MODUL LENGKAP) -->
+    <section id="projects" class="py-24 px-4 max-w-7xl mx-auto border-t border-cyan-900/30">
+        <div class="vault-box mb-20">
+            <h2 id="vault-title" class="text-vault-title">
+                CV_AROY_<span class="text-cyan-400">SOEBANK</span>_PROJECT_VAULT
+            </h2>
+            <div class="mt-4 flex items-center gap-4">
+                <div class="h-[1px] w-12 bg-cyan-500/30"></div>
+                <div id="vault-status" class="text-[9px] font-bold text-cyan-600 tracking-[0.4em] uppercase">System_Linked // 10_Modules_Online</div>
+                <div class="h-[1px] w-12 bg-cyan-500/30"></div>
             </div>
         </div>
 
-        <!-- CONTACT SECTION -->
-        <section class="glass-card p-10 md:p-16 flex flex-col md:flex-row justify-between items-center gap-12 no-print relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-sky-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-            <div class="text-center md:text-left relative z-10">
-                <h2 class="text-3xl font-black text-white mb-4 uppercase tracking-tighter" id="txt-contact">Establish Connection</h2>
-                <div class="space-y-2">
-                    <p class="text-slate-400 text-lg">ahmadroyani212@gmail.com</p>
-                    <p class="text-sky-500 font-bold mono tracking-widest">+62 852 2220 2023</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- 1. SalesApp Elite -->
+            <div class="hud-card p-10 rounded-xl border-l-4 border-cyan-500/40">
+                <i class="fas fa-layer-group text-cyan-400 text-3xl mb-8"></i>
+                <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter">SalesApp_Elite</h3>
+                <p id="p1-desc" class="text-sm text-slate-400 leading-relaxed">Manajemen retail cloud enterprise dengan sinkronisasi data real-time otomatis.</p>
+            </div>
+
+            <!-- 2. AROY AI (V2V) -->
+            <div class="hud-card p-10 rounded-xl border-cyan-500 bg-cyan-500/10 relative overflow-hidden shadow-2xl">
+                <div class="scanner-bar opacity-20"></div>
+                <i class="fas fa-brain text-cyan-400 text-3xl mb-8"></i>
+                <h3 class="text-xl font-black mb-4 text-cyan-400 italic uppercase tracking-tighter">AROY_AI_V2V</h3>
+                <p id="p2-desc" class="text-sm text-white leading-relaxed font-bold">Neural network komunikasi kendaraan otonom demi keselamatan infrastruktur jalan.</p>
+            </div>
+
+            <!-- 3. Bidan Siaga -->
+            <div class="hud-card p-10 rounded-xl border-l-4 border-rose-500/40 bg-rose-500/5">
+                <i class="fas fa-user-md text-rose-400 text-3xl mb-8"></i>
+                <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter italic">Bidan_Siaga</h3>
+                <p id="p3-desc" class="text-sm text-slate-400 leading-relaxed">Respon cepat kesehatan ibu berbasis lokasi untuk integrasi layanan bidan darurat.</p>
+            </div>
+
+            <!-- 4. Ancient Chinese Medicine (Ancient Heal) -->
+            <div class="hud-card p-10 rounded-xl border-2 border-amber-500/30 bg-amber-900/10">
+                <i class="fas fa-yin-yang text-amber-500 text-4xl mb-8"></i>
+                <h3 class="text-xl font-black mb-4 text-amber-400 uppercase tracking-tighter">ANCIENT_HEAL</h3>
+                <p id="p4-desc" class="text-sm text-slate-200 leading-relaxed italic">Integrasi kearifan medis Tiongkok kuno dengan teknologi diagnosa data modern.</p>
+            </div>
+
+            <!-- 5. Fin_Core_System -->
+            <div class="hud-card p-10 rounded-xl border-l-4 border-cyan-500/40">
+                <i class="fas fa-wallet text-cyan-400 text-3xl mb-8"></i>
+                <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter">Fin_Core_System</h3>
+                <p id="p5-desc" class="text-sm text-slate-400 leading-relaxed">Dashboard perbankan terenkripsi dengan audit log dan analitik keuangan otomatis.</p>
+            </div>
+
+            <!-- 6. Smart Warung v2 -->
+            <div class="hud-card p-10 rounded-xl">
+                <i class="fas fa-store text-cyan-400 text-3xl mb-8"></i>
+                <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter">Smart_Warung_v2</h3>
+                <p id="p6-desc" class="text-sm text-slate-400 leading-relaxed">Digitalisasi UMKM retail dengan POS cerdas dan sistem manajemen stok harian.</p>
+            </div>
+
+            <!-- 7. CleanArmor X1 -->
+            <div class="hud-card p-10 rounded-xl">
+                <i class="fas fa-wind text-cyan-400 text-3xl mb-8"></i>
+                <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter">CleanArmor_X1</h3>
+                <p id="p7-desc" class="text-sm text-slate-400 leading-relaxed">Otomasi hardware IoT untuk sanitasi helm melalui teknologi dry-steam terkendali.</p>
+            </div>
+
+            <!-- 8. ZONKY MASTER (Robot Brain) -->
+            <div class="hud-card p-10 rounded-xl border-2 border-cyan-400 bg-cyan-900/30 shadow-cyan-900/20 shadow-xl">
+                <div class="mb-8">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.5 2C11.5 2 12 3.5 12 5V19C12 20.5 11.5 22 9.5 22C4 22 2 18 2 12C2 6 4 2 9.5 2Z" stroke="#00ffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.5 2C12.5 2 12 3.5 12 5V19C12 20.5 12.5 22 14.5 22C20 22 22 18 22 12C22 6 20 2 14.5 2Z" stroke="#00ffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M7 7H10M7 12H10M7 17H10" stroke="#00ffff" stroke-width="2"/>
+                        <path d="M14 7H17M14 12H17M14 17H17" stroke="#00ffff" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="1.5" fill="#00ffff"/>
+                    </svg>
                 </div>
+                <h3 class="text-xl font-black mb-4 text-cyan-400 uppercase tracking-widest">ZONKY_MASTER</h3>
+                <p id="p8-desc" class="text-sm text-white leading-relaxed font-bold italic">Arsitektur inti dan kernel penggerak utama seluruh ekosistem digital.</p>
             </div>
-            <div class="flex gap-4 relative z-10">
-                <a href="https://wa.me/6285222202023" target="_blank" class="w-16 h-16 rounded-2xl flex items-center justify-center bg-white/5 border border-white/10 hover:border-sky-500 hover:bg-sky-500/10 text-slate-400 hover:text-sky-400 transition-all duration-300">
-                    <i data-lucide="message-square" class="w-7 h-7"></i>
-                </a>
-                <a href="mailto:ahmadroyani212@gmail.com" class="w-16 h-16 rounded-2xl flex items-center justify-center bg-white/5 border border-white/10 hover:border-sky-500 hover:bg-sky-500/10 text-slate-400 hover:text-sky-400 transition-all duration-300">
-                    <i data-lucide="mail" class="w-7 h-7"></i>
-                </a>
+
+            <!-- 9. Quantum Crypto -->
+            <div class="hud-card p-10 rounded-xl border-2 border-purple-500/40 bg-purple-900/5">
+                <i class="fas fa-shield-alt text-purple-400 text-3xl mb-8"></i>
+                <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter">QUANTUM_SEC</h3>
+                <p id="p9-desc" class="text-sm text-slate-400 leading-relaxed">Infrastruktur keamanan data dengan algoritma kriptografi pasca-kuantum.</p>
             </div>
-        </section>
 
-    </main>
+            <!-- 10. Bio-Synthesize IoT -->
+            <div class="hud-card p-10 rounded-xl border-l-4 border-emerald-500/40 bg-emerald-900/5">
+                <i class="fas fa-leaf text-emerald-400 text-3xl mb-8"></i>
+                <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter">BIO_SYNTH_IoT</h3>
+                <p id="p10-desc" class="text-sm text-slate-400 leading-relaxed">Sistem monitor agrikultur cerdas menggunakan sensor biometrik tanah terintegrasi IoT.</p>
+            </div>
+        </div>
+    </section>
 
-    <footer class="text-center pb-24 opacity-30 no-print">
-        <p class="mono text-[10px] tracking-[1.5em] uppercase text-white font-bold">Ahmad Royani // Systems Architect // 2026</p>
+    <!-- Footer -->
+    <footer class="py-16 bg-black border-t border-cyan-900/50 text-center px-6">
+        <div class="flex justify-center gap-12 mb-10 text-3xl">
+            <a href="https://github.com/ahmadroyani212-wq" class="text-slate-600 hover:text-cyan-400 transition transform hover:scale-125"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/628123456789" class="text-slate-600 hover:text-cyan-400 transition transform hover:scale-125"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p class="text-[10px] text-slate-700 font-bold uppercase tracking-[1em] break-all">&copy; 2026 // CV_AROY_SOEBANK // SYSTEM_ULTIMATUM</p>
     </footer>
 
     <script>
-        const i18n = {
-            id: {
-                man: "Mendefinisikan ulang infrastruktur digital melalui integrasi kecerdasan otonom dan skalabilitas sistem tingkat tinggi.",
-                diag: "Diagnostik_Arsitektur",
-                core: "Matriks_Teknis",
-                exp: "Daftar Implementasi",
-                contact: "Hubungi Arsitek",
-                p1: "Framework komunikasi otonom antar kendaraan untuk meningkatkan keselamatan jalan raya melalui transmisi data instan.",
-                p2: "Sistem ERP premium dengan sinkronisasi cloud real-time, manajemen ritel, dan infrastruktur database aman.",
-                p3: "Otomatisasi sanitasi industri menggunakan teknologi ozon dan uap kering melalui integrasi perangkat lunak cerdas.",
-                p4: "Aplikasi diagnostik medis integratif berbasis standar pengobatan tradisional menggunakan logika sistem pakar."
-            },
+        const translations = {
             en: {
-                man: "Redefining digital infrastructure through autonomous intelligence integration and high-level system scalability.",
-                diag: "Architecture_Diagnostics",
-                core: "Technical_Matrix",
-                exp: "Deployment Records",
-                contact: "Establish Connection",
-                p1: "Autonomous Vehicle-to-Vehicle (V2V) framework designed for road safety via instantaneous data transmission.",
-                p2: "Premium ERP system featuring real-time cloud synchronization, retail management, and secure data hubs.",
-                p3: "Industrial robotic sanitization utilizing ozone and dry-steam technology via smart software integration.",
-                p4: "Integrative medical diagnostic engine based on traditional standards utilizing expert system logic."
+                badge: "CV_AROY_SOEBANK // ELITE_SYSTEM_ARCHITECT",
+                desc: "Systems Architect & Lead Developer specializing in intelligent digital infrastructure, ancient medical solutions, and integrated AI ecosystems.",
+                btnVault: "Access_Repositories", btnContact: "Establish_Signal",
+                vault: "CV_AROY_<span class='text-cyan-400'>SOEBANK</span>_PROJECT_VAULT",
+                p1: "Cloud retail management with real-time automatic data sync for enterprises.",
+                p2: "Neural networks for autonomous vehicle communication and road infrastructure safety.",
+                p3: "Location-based maternal health system for emergency midwife services.",
+                p4: "Ancient Chinese medical wisdom integrated with modern data diagnostics.",
+                p5: "Encrypted banking dashboard with audit logs and automated financial analytics.",
+                p6: "MSME digitalization with smart POS and daily inventory management.",
+                p7: "IoT hardware automation for helmet sanitation using dry-steam tech.",
+                p8: "Core architecture and driving kernel of the entire digital ecosystem.",
+                p9: "Data security infrastructure using post-quantum cryptography algorithms.",
+                p10: "Smart agricultural monitoring using IoT-integrated soil biometric sensors."
+            },
+            id: {
+                badge: "CV_AROY_SOEBANK // ARSITEK_SISTEM_ELITE",
+                desc: "Sistem Arsitek & Lead Developer mengkhususkan diri pada infrastruktur digital cerdas, solusi medis kuno, dan ekosistem AI terpadu.",
+                btnVault: "Akses_Repositori", btnContact: "Hubungi_Sinyal",
+                vault: "CV_AROY_<span class='text-cyan-400'>SOEBANK</span>_PROYEK_VAULT",
+                p1: "Manajemen retail cloud enterprise dengan sinkronisasi data real-time otomatis.",
+                p2: "Neural network untuk komunikasi kendaraan otonom demi keselamatan jalan.",
+                p3: "Sistem kesehatan ibu berbasis lokasi untuk layanan bidan darurat.",
+                p4: "Integrasi kearifan medis Tiongkok kuno dengan diagnosa data modern.",
+                p5: "Dashboard perbankan terenkripsi dengan audit log dan analitik keuangan otomatis.",
+                p6: "Digitalisasi UMKM dengan POS cerdas dan manajemen stok harian.",
+                p7: "Otomasi hardware IoT untuk sanitasi helm melalui teknologi dry-steam.",
+                p8: "Arsitektur inti dan kernel penggerak utama seluruh ekosistem digital.",
+                p9: "Infrastruktur keamanan data dengan algoritma kriptografi pasca-kuantum.",
+                p10: "Sistem monitor agrikultur cerdas menggunakan sensor biometrik tanah terintegrasi IoT."
             },
             jp: {
-                man: "自律型知能の統合と高度なシステム拡張性により、デジタル・インフラを再定義する。",
-                diag: "システム診断",
-                core: "技術マトリックス",
-                exp: "グローバル・プロジェクト展開",
-                p1: "道路の安全性を高めるための自律型車車間（V2V）通信フレームワーク。",
-                p2: "リアルタイムのクラウド同期、小売管理、安全なデータハブを備えたプレミアムERP。",
-                p3: "統合ソフトウェアを介して制御される産業用ロボット衛生管理。",
-                p4: "伝統的な医療基準に基づく統合医療診断エンジン。",
-                contact: "接続を確立する"
+                badge: "CV_AROY_SOEBANK // 認定システム設計者",
+                desc: "インテリジェントなデジタルインフラ、古代の医療ソリューション、および統合されたAIエコシステムを専門とするシステム設計者。",
+                btnVault: "リポジトリにアクセス", btnContact: "信号を確立する",
+                vault: "CV_AROY_<span class='text-cyan-400'>SOEBANK</span>_プロジェクト_ボルト",
+                p1: "自動リアルタイムデータ同期を備えた企業向けクラウド小売管理。",
+                p2: "道路インフラの安全のための自律走行車通信用ニューラルネットワーク。",
+                p3: "緊急助産師サービスのための位置ベースの母体健康システム。",
+                p4: "古代中国の医学的知恵と現代のデータ診断の統合。",
+                p5: "監査ログと自動財務分析を備えた暗号化された銀行ダッシュボード。",
+                p6: "スマートPOSと日次在庫管理による中小企業のデジタル化。",
+                p7: "ドライスチーム技術を使用したヘルメット衛生用IoTハードウェア自動化。",
+                p8: "デジタルエコシステム全体のコアアーキテクチャと駆動カーネル。",
+                p9: "耐量子計算機暗号アルゴリズムを使用したデータセキュリティ基盤。",
+                p10: "IoT統合土壌バイオメトリックセンサーを使用したスマート農業モニタリング。"
+            },
+            de: {
+                badge: "CV_AROY_SOEBANK // ELITE_SYSTEMARCHITEKT",
+                desc: "Systemarchitekt & Lead Developer spezialisiert auf digitale Infrastruktur, alte medizinische Lösungen und KI-Ökosysteme.",
+                btnVault: "Repositories_Zugriff", btnContact: "Signal_Aufbauen",
+                vault: "CV_AROY_<span class='text-cyan-400'>SOEBANK</span>_PROJEKT_TRESOR",
+                p1: "Cloud-Einzelhandelsmanagement mit automatischer Echtzeit-Datensynchronisation.",
+                p2: "Neuronale Netze für die Kommunikation autonomer Fahrzeuge zur Verkehrssicherheit.",
+                p3: "Standortbasiertes Müttergesundheitssystem für Hebammennotdienste.",
+                p4: "Alte chinesische Weisheit integriert in moderne Datendiagnostik.",
+                p5: "Verschlüsseltes Banking-Dashboard mit Audit-Logs und automatisierter Finanzanalyse.",
+                p6: "Digitalisierung von KMUs mit intelligentem POS und Inventarverwaltung.",
+                p7: "Hardware-IoT-Automatisierung für Helmsanierung mittels Trockendampf.",
+                p8: "Kernarchitektur und Antriebskernel des gesamten digitalen Ökosystems.",
+                p9: "Datensicherheitsinfrastruktur unter Verwendung von Post-Quanten-Kryptografie.",
+                p10: "Smarte Agrarüberwachung mittels IoT-integrierter Bodenbiometriesensoren."
+            },
+            zh: {
+                badge: "CV_AROY_SOEBANK // 认证系统架构师",
+                desc: "系统架构师和首席开发人员，专注于智能数字基础设施、古代医学解决方案和集成AI生态系统。",
+                btnVault: "访问库", btnContact: "建立信号",
+                vault: "CV_AROY_<span class='text-cyan-400'>SOEBANK</span>_项目_库",
+                p1: "具有自动实时数据同步功能的企业云零售管理。",
+                p2: "用于自主车辆通信以确保道路基础设施安全的神经网络。",
+                p3: "基于位置的孕产妇健康系统，用于紧急助产士服务。",
+                p4: "整合传统中医智慧与现代数据诊断的古代医疗方案。",
+                p5: "具有审计日志和自动财务分析功能的加密银行仪表板。",
+                p6: "通过智能POS和每日库存管理实现中小企业数字化。",
+                p7: "使用干蒸汽技术的头盔卫生硬件物联网自动化。",
+                p8: "整个数字生态系统的底层架构和驱动内核。",
+                p9: "使用后量子加密算法的数据安全基础设施。",
+                p10: "使用集成物联网的土壤生物识别传感器的智能农业监测。"
             }
         };
 
-        function setLang(lang) {
-            const t = i18n[lang];
-            if(!t) return;
-            
-            document.getElementById('txt-manifesto').textContent = t.man;
-            document.getElementById('txt-core-1').textContent = t.core;
-            document.getElementById('txt-core-2').textContent = t.diag;
-            document.getElementById('txt-title-exp').textContent = t.exp;
-            document.getElementById('txt-contact').textContent = t.contact || "Establish Connection";
-            document.getElementById('p1').textContent = t.p1;
-            document.getElementById('p2').textContent = t.p2;
-            document.getElementById('p3').textContent = t.p3;
-            document.getElementById('p4').textContent = t.p4;
-
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('lang-active'));
-            document.getElementById(`btn-${lang}`).classList.add('lang-active');
-            
-            addLog(`SYSTEM: Localization set to ${lang.toUpperCase()}`);
-        }
-
-        function addLog(msg) {
-            const logBox = document.getElementById('log');
-            const entry = document.createElement('div');
-            entry.innerHTML = `<span class="opacity-20 mr-2">[${new Date().toLocaleTimeString('en-GB', { hour12: false })}]</span> <span class="text-sky-500/60 font-bold">></span> ${msg}`;
-            logBox.prepend(entry);
-            if(logBox.children.length > 10) logBox.removeChild(logBox.lastChild);
-        }
-
-        function createSkillBars() {
-            document.querySelectorAll('.skill-item').forEach(item => {
-                const bar = item.querySelector('.segment-bar');
-                const val = parseInt(item.dataset.value);
-                const segments = 20;
-                const activeCount = Math.floor((val / 100) * segments);
-                
-                for(let i=0; i < segments; i++) {
-                    const seg = document.createElement('div');
-                    seg.className = `segment ${i < activeCount ? 'active' : ''}`;
-                    if(i < activeCount) seg.style.transitionDelay = `${i * 40}ms`;
-                    bar.appendChild(seg);
-                }
-            });
-        }
-
-        function initSystem() {
-            lucide.createIcons();
-            createSkillBars();
-            setLang('id');
-            
-            setTimeout(() => {
-                document.getElementById('viz-line').style.width = '100%';
-            }, 300); // FIXED: Added missing closing parenthesis
-
-            const logItems = [
-                "Verifying secure cloud nodes...", 
-                "Loading architectural patterns...", 
-                "DAMA protocol initialized.", 
-                "Neural Core: Stable.", 
-                "Analyzing scalability metrics...",
-                "Database sync: Successful.",
-                "Sentinel: Monitoring environment."
-            ];
-            
-            setInterval(() => addLog(logItems[Math.floor(Math.random() * logItems.length)]), 4500);
-
-            let start = Date.now();
-            setInterval(() => {
-                let s = Math.floor((Date.now() - start) / 1000);
-                document.getElementById('uptime').textContent = `Uptime: ${String(Math.floor(s/3600)).padStart(2,'0')}:${String(Math.floor((s%3600)/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;
-            }, 1000);
+        function changeLang(lang) {
+            document.getElementById('badge').innerHTML = translations[lang].badge;
+            document.getElementById('hero-desc').innerHTML = translations[lang].desc;
+            document.getElementById('btn-vault').innerText = translations[lang].btnVault;
+            document.getElementById('vault-title').innerHTML = translations[lang].vault;
+            for(let i=1; i<=10; i++){
+                document.getElementById('p'+i+'-desc').innerText = translations[lang]['p'+i];
+            }
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('btn-' + lang).classList.add('active');
         }
     </script>
 </body>
