@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>CV_AROY_SOEBANK | Ahmad Royani</title>
+    <title>CV_AROY_SOEBANK | Ahmad Royani, S.Kom</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -45,16 +45,15 @@
         .vault-box::after { content: ''; position: absolute; bottom: -6px; right: -6px; width: 18px; height: 18px; border-bottom: 5px solid var(--neon-cyan); border-right: 5px solid var(--neon-cyan); }
 
         .text-vault-title {
-            font-size: clamp(0.45rem, 2.7vw, 2.5rem);
+            font-size: clamp(0.4rem, 2.5vw, 2.5rem);
             font-weight: 800;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.12em;
             text-align: center;
             white-space: nowrap;
             color: var(--pure-white);
             text-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
         }
 
-        /* Background Grid */
         .grid-bg {
             background-image: linear-gradient(rgba(0, 255, 255, 0.04) 1px, transparent 1px),
                               linear-gradient(90deg, rgba(0, 255, 255, 0.04) 1px, transparent 1px);
@@ -77,7 +76,7 @@
 
         .hud-card:hover {
             border-color: var(--neon-cyan);
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-8px);
             box-shadow: 0 0 40px rgba(0, 255, 255, 0.2);
         }
 
@@ -90,33 +89,112 @@
             animation: scan 6s linear infinite;
             z-index: 10;
         }
-
         @keyframes scan { 0% { top: 0; opacity: 0; } 50% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
 
         /* MASKING UNTUK MENUTUP "CICI AI" */
         .photo-mask {
             position: absolute;
             bottom: 0;
-            right: 0;
+            left: 0;
             width: 100%;
-            height: 40px;
-            background: linear-gradient(transparent, var(--bg-dark));
+            height: 48px;
+            background: linear-gradient(transparent, var(--bg-dark) 90%);
             z-index: 5;
             display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 15px;
-            font-size: 8px;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 10px;
+            font-size: 7px;
             font-weight: bold;
             color: var(--neon-cyan);
             letter-spacing: 2px;
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
         }
 
-        .lang-btn { opacity: 0.4; transition: 0.3s; padding: 2px 4px; }
+        .skill-bar { height: 4px; background: rgba(255,255,255,0.05); position: relative; overflow: hidden; }
+        .skill-progress { height: 100%; background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); }
+
+        /* Modal Experience */
+        #cv-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: rgba(2, 6, 23, 0.98);
+            backdrop-filter: blur(25px);
+            overflow-y: auto;
+        }
+
+        .timeline-item { border-left: 2px solid rgba(0, 255, 255, 0.2); position: relative; padding-left: 20px; margin-bottom: 30px; }
+        .timeline-dot { position: absolute; left: -6px; top: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); }
+
+        .lang-btn { opacity: 0.4; transition: 0.3s; }
         .lang-btn.active { opacity: 1; color: var(--neon-cyan); border-bottom: 2px solid var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan); }
     </style>
 </head>
 <body class="selection:bg-cyan-500/40">
+
+    <!-- MODAL RIWAYAT KERJA (DECRYPTED FROM PHOTO) -->
+    <div id="cv-modal" class="p-6 md:p-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex justify-between items-center mb-12 border-b border-cyan-500/20 pb-6">
+                <h2 class="text-xl md:text-3xl font-black text-cyan-400 uppercase tracking-widest">MASTER_SERVICE_LOGS</h2>
+                <button onclick="toggleModal()" class="text-slate-500 hover:text-white text-3xl transition">&times;</button>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16">
+                <!-- Timeline Pengalaman Kerja -->
+                <div>
+                    <h3 class="text-xs font-black text-white mb-8 tracking-[0.3em] uppercase underline decoration-cyan-500 underline-offset-8">Employment_History</h3>
+                    <div class="space-y-4">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="text-[10px] text-cyan-500 font-bold uppercase">2017 - 2021</div>
+                            <div class="text-sm font-black text-white uppercase">Komisaris @ PT. Aharon Cakra Mahkota</div>
+                            <p class="text-[10px] text-slate-400 mt-2 leading-relaxed">Mengawasi kebijakan pengurusan dan memberi nasihat kepada direksi. Bertanggung jawab atas pengawasan umum dan khusus terhadap jalannya perusahaan.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="text-[10px] text-cyan-500 font-bold uppercase">2014 - 2017</div>
+                            <div class="text-sm font-black text-white uppercase">Manager Operator IT @ PT. Kriya Prabu Nusantara</div>
+                            <p class="text-[10px] text-slate-400 mt-2 leading-relaxed">Memimpin dan mengawasi pekerjaan seluruh operator IT di perusahaan guna menjamin efisiensi infrastruktur digital.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="text-[10px] text-cyan-500 font-bold uppercase">2011 - 2013</div>
+                            <div class="text-sm font-black text-white uppercase">Manager Keuangan & IT @ RS Medical Center</div>
+                            <p class="text-[10px] text-slate-400 mt-2 leading-relaxed">Mengurus keuangan RSPMC dan membangun jaringan komputerisasi rumah sakit untuk manajemen operasional yang modern.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="text-[10px] text-cyan-500 font-bold uppercase">2007 - 2011</div>
+                            <div class="text-sm font-black text-white uppercase">Marketing @ PT. BPR KS</div>
+                            <p class="text-[10px] text-slate-400 mt-2 leading-relaxed">Pemasaran produk kredit pinjaman perbankan dan membangun relasi nasabah.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info Akademik & Kontak -->
+                <div class="space-y-12">
+                    <div class="hud-card p-8 rounded-xl border border-cyan-500/20">
+                        <h3 class="text-[10px] font-black text-cyan-400 mb-4 uppercase tracking-widest">Academic_Core</h3>
+                        <div class="text-sm font-bold text-white uppercase mb-1">Universitas Komputer Indonesia</div>
+                        <div class="text-[10px] text-slate-300 font-bold">Teknik Informatika (S.Kom)</div>
+                        <div class="text-[10px] text-slate-500 mt-2 italic">Class of 2001 - 2005 // ID: UNIKOM_ARCH_GRAD</div>
+                    </div>
+                    
+                    <div class="hud-card p-8 rounded-xl border border-white/5">
+                        <h3 class="text-[10px] font-black text-cyan-400 mb-6 uppercase tracking-widest">Direct_Comms</h3>
+                        <div class="space-y-4 text-[11px]">
+                            <div class="flex justify-between border-b border-white/5 pb-2"><span>EMAIL</span><span class="text-white font-bold">ahmadroyani212@gmail.com</span></div>
+                            <div class="flex justify-between border-b border-white/5 pb-2"><span>PHONE</span><span class="text-white font-bold">085222202023</span></div>
+                            <div class="flex justify-between"><span>LOCATION</span><span class="text-white font-bold">Subang, West Java, ID</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="grid-bg"></div>
 
@@ -125,10 +203,10 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center bg-slate-900/95 border border-cyan-500/30 backdrop-blur-3xl px-4 py-3 md:px-8 md:py-4 rounded-2xl shadow-2xl">
             <div class="flex items-center gap-2">
                 <div class="w-3 h-3 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_12px_#00ffff]"></div>
-                <span class="text-[9px] md:text-xs font-bold tracking-[0.2em] text-cyan-400 uppercase">CV_AROY_SOEBANK // v19.0</span>
+                <span class="text-[9px] md:text-xs font-bold tracking-[0.2em] text-cyan-400 uppercase">CV_AROY_SOEBANK // v22.0</span>
             </div>
             
-            <div class="flex items-center gap-2 md:gap-4 text-[8px] md:text-[11px] font-black border-l border-white/10 pl-2 md:pl-6 uppercase">
+            <div class="flex items-center gap-2 md:gap-4 text-[8px] md:text-[11px] font-black border-l border-white/10 pl-3 md:pl-6 uppercase">
                 <button onclick="changeLang('en')" id="btn-en" class="lang-btn">EN</button>
                 <button onclick="changeLang('id')" id="btn-id" class="lang-btn active">ID</button>
                 <button onclick="changeLang('jp')" id="btn-jp" class="lang-btn">JP</button>
@@ -144,34 +222,57 @@
             <div class="absolute -top-4 -left-4 w-12 h-12 border-t-4 border-l-4 border-cyan-500"></div>
             <div class="absolute -bottom-4 -right-4 w-12 h-12 border-b-4 border-r-4 border-cyan-500"></div>
             
-            <div class="relative w-64 h-80 md:w-80 md:h-[480px] rounded-sm overflow-hidden border border-cyan-500/40 bg-slate-900 shadow-[0_0_50px_rgba(0,255,255,0.1)]">
+            <div class="relative w-64 h-80 md:w-80 md:h-[480px] rounded-sm overflow-hidden border border-cyan-500/40 bg-slate-900 shadow-2xl">
                 <div class="scanner-bar"></div>
-                
-                <img src="https://i.ibb.co/s9z0X5cV/image.jpg" 
-                     alt="Ahmad Royani" 
-                     class="w-full h-full object-cover grayscale brightness-90 group-hover:grayscale-0 transition duration-1000 scale-105 group-hover:scale-100">
-                
-                <!-- ELEMEN UNTUK MENUTUP "CICI AI" -->
+                <img src="https://i.ibb.co/s9z0X5cV/image.jpg" alt="Ahmad Royani" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition duration-1000">
+                <!-- TUTUP WATERMARK CICI -->
                 <div class="photo-mask">
-                    <span class="animate-pulse">ID: AR_212-WQ // SECURE_LOG</span>
+                    <span class="animate-pulse">KERNEL_LOADED: S.KOM_AR_212WQ</span>
                 </div>
             </div>
         </div>
 
         <div class="flex-1 text-center lg:text-left">
             <div id="badge" class="mb-4 inline-block bg-cyan-500/10 border border-cyan-500/40 px-4 py-1.5 rounded text-[9px] md:text-[11px] font-black text-cyan-400 tracking-[0.2em] uppercase">CV_AROY_SOEBANK // ELITE_SYSTEM_ARCHITECT</div>
-            <h1 class="text-6xl md:text-9xl font-black mb-4 tracking-tighter uppercase leading-none text-white">AHMAD <br class="hidden sm:block"><span class="text-cyan-400 italic">ROYANI</span></h1>
+            <h1 class="text-5xl md:text-9xl font-black mb-4 tracking-tighter uppercase leading-none text-white">AHMAD <br class="hidden sm:block"><span class="text-cyan-400 italic">ROYANI</span></h1>
             <p id="hero-desc" class="text-base md:text-2xl text-slate-300 mb-10 max-w-2xl font-light leading-relaxed italic border-l-4 border-cyan-500 pl-6">
-                Arsitek Sistem & Lead Developer mengkhususkan diri pada infrastruktur digital cerdas, teknologi medis kuno, dan ekosistem AI terpadu.
+                Sistem Arsitek (S.Kom) mengkhususkan diri pada infrastruktur digital cerdas, Tiktok Ads Expert, dan Ekosistem AI terpadu.
             </p>
             <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-                <a href="#projects" id="btn-vault" class="px-10 py-4 bg-cyan-500 text-slate-950 font-black text-xs uppercase tracking-widest hover:bg-white transition shadow-[0_0_30px_rgba(0,255,255,0.4)]">Access_Repositories</a>
-                <a href="https://wa.me/628123456789" id="btn-contact" class="px-10 py-4 border-2 border-cyan-500 text-neon font-black text-xs uppercase tracking-widest hover:bg-cyan-500/10 transition">Establish_Signal</a>
+                <button onclick="toggleModal()" class="px-8 py-4 bg-cyan-500 text-slate-950 font-black text-xs uppercase tracking-widest hover:bg-white transition shadow-lg shadow-cyan-900/40">
+                    DECRYPT_SERVICE_LOGS
+                </button>
+                <a href="https://wa.me/628123456789" id="btn-contact" class="px-8 py-4 border-2 border-cyan-500 text-cyan-400 font-black text-xs uppercase tracking-widest hover:bg-cyan-500/10 transition">Establish_Link</a>
             </div>
         </div>
     </header>
 
-    <!-- Project Database (10 MODUL LENGKAP) -->
+    <!-- Skill Matrix -->
+    <section class="py-12 px-6 max-w-7xl mx-auto">
+        <div class="hud-card p-8 rounded-2xl border border-white/5 bg-slate-900/50">
+            <h3 id="skill-title" class="text-xs font-black uppercase tracking-[0.3em] text-cyan-500 mb-8 border-b border-cyan-500/20 pb-2">Technical_Skill_Matrix</h3>
+            <div class="grid md:grid-cols-2 gap-x-12 gap-y-6">
+                <div>
+                    <div class="flex justify-between text-[10px] font-bold mb-2"><span>TIKTOK_ADS_STRATEGY</span><span class="text-cyan-400">EXPERT</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 100%"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-[10px] font-bold mb-2"><span>SYSTEM_ARCHITECTURE</span><span>98%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 98%"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-[10px] font-bold mb-2"><span>AI_NEURAL_NETS</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                </div>
+                <div>
+                    <div class="flex justify-between text-[10px] font-bold mb-2"><span>IoT_AUTOMATION</span><span>92%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 92%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Database (10 MODUL LENGKAP & PRESISI) -->
     <section id="projects" class="py-24 px-4 max-w-7xl mx-auto border-t border-cyan-900/30">
         <div class="vault-box mb-20">
             <h2 id="vault-title" class="text-vault-title">
@@ -179,85 +280,76 @@
             </h2>
             <div class="mt-4 flex items-center gap-4">
                 <div class="h-[1px] w-12 bg-cyan-500/30"></div>
-                <div id="vault-status" class="text-[9px] font-bold text-cyan-600 tracking-[0.4em] uppercase">System_Linked // 10_Modules_Online</div>
+                <div class="text-[9px] font-bold text-cyan-600 tracking-[0.4em] uppercase">System_Linked // All_Modules_Active</div>
                 <div class="h-[1px] w-12 bg-cyan-500/30"></div>
             </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- 1. SalesApp Elite -->
+            <!-- 1. SalesApp -->
             <div class="hud-card p-10 rounded-xl border-l-4 border-cyan-500/40">
                 <i class="fas fa-layer-group text-cyan-400 text-3xl mb-8"></i>
                 <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter">SalesApp_Elite</h3>
                 <p id="p1-desc" class="text-sm text-slate-400 leading-relaxed">Manajemen retail cloud enterprise dengan sinkronisasi data real-time otomatis.</p>
             </div>
-
-            <!-- 2. AROY AI (V2V) -->
+            <!-- 2. AROY AI -->
             <div class="hud-card p-10 rounded-xl border-cyan-500 bg-cyan-500/10 relative overflow-hidden shadow-2xl">
                 <div class="scanner-bar opacity-20"></div>
                 <i class="fas fa-brain text-cyan-400 text-3xl mb-8"></i>
                 <h3 class="text-xl font-black mb-4 text-cyan-400 italic uppercase tracking-tighter">AROY_AI_V2V</h3>
                 <p id="p2-desc" class="text-sm text-white leading-relaxed font-bold">Neural network komunikasi kendaraan otonom demi keselamatan infrastruktur jalan.</p>
             </div>
-
             <!-- 3. Bidan Siaga -->
             <div class="hud-card p-10 rounded-xl border-l-4 border-rose-500/40 bg-rose-500/5">
                 <i class="fas fa-user-md text-rose-400 text-3xl mb-8"></i>
                 <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter italic">Bidan_Siaga</h3>
                 <p id="p3-desc" class="text-sm text-slate-400 leading-relaxed">Respon cepat kesehatan ibu berbasis lokasi untuk integrasi layanan bidan darurat.</p>
             </div>
-
-            <!-- 4. Ancient Chinese Medicine (Ancient Heal) -->
+            <!-- 4. Ancient Heal -->
             <div class="hud-card p-10 rounded-xl border-2 border-amber-500/30 bg-amber-900/10">
                 <i class="fas fa-yin-yang text-amber-500 text-4xl mb-8"></i>
                 <h3 class="text-xl font-black mb-4 text-amber-400 uppercase tracking-tighter">ANCIENT_HEAL</h3>
                 <p id="p4-desc" class="text-sm text-slate-200 leading-relaxed italic">Integrasi kearifan medis Tiongkok kuno dengan teknologi diagnosa data modern.</p>
             </div>
-
-            <!-- 5. Fin_Core_System -->
+            <!-- 5. Fin Core -->
             <div class="hud-card p-10 rounded-xl border-l-4 border-cyan-500/40">
                 <i class="fas fa-wallet text-cyan-400 text-3xl mb-8"></i>
                 <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter">Fin_Core_System</h3>
                 <p id="p5-desc" class="text-sm text-slate-400 leading-relaxed">Dashboard perbankan terenkripsi dengan audit log dan analitik keuangan otomatis.</p>
             </div>
-
-            <!-- 6. Smart Warung v2 -->
+            <!-- 6. Smart Warung -->
             <div class="hud-card p-10 rounded-xl">
                 <i class="fas fa-store text-cyan-400 text-3xl mb-8"></i>
                 <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter">Smart_Warung_v2</h3>
                 <p id="p6-desc" class="text-sm text-slate-400 leading-relaxed">Digitalisasi UMKM retail dengan POS cerdas dan sistem manajemen stok harian.</p>
             </div>
-
-            <!-- 7. CleanArmor X1 -->
+            <!-- 7. CleanArmor -->
             <div class="hud-card p-10 rounded-xl">
                 <i class="fas fa-wind text-cyan-400 text-3xl mb-8"></i>
                 <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter">CleanArmor_X1</h3>
                 <p id="p7-desc" class="text-sm text-slate-400 leading-relaxed">Otomasi hardware IoT untuk sanitasi helm melalui teknologi dry-steam terkendali.</p>
             </div>
-
-            <!-- 8. ZONKY MASTER (Robot Brain) -->
-            <div class="hud-card p-10 rounded-xl border-2 border-cyan-400 bg-cyan-900/30 shadow-cyan-900/20 shadow-xl">
+            <!-- 8. ZONKY MASTER (BRAIN ICON) -->
+            <div class="hud-card p-10 rounded-xl border-2 border-cyan-500 bg-cyan-900/30 shadow-xl">
                 <div class="mb-8">
-                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9.5 2C11.5 2 12 3.5 12 5V19C12 20.5 11.5 22 9.5 22C4 22 2 18 2 12C2 6 4 2 9.5 2Z" stroke="#00ffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M14.5 2C12.5 2 12 3.5 12 5V19C12 20.5 12.5 22 14.5 22C20 22 22 18 22 12C22 6 20 2 14.5 2Z" stroke="#00ffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M7 7H10M7 12H10M7 17H10" stroke="#00ffff" stroke-width="2"/>
-                        <path d="M14 7H17M14 12H17M14 17H17" stroke="#00ffff" stroke-width="2"/>
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#00ffff" stroke-width="2">
+                        <path d="M9.5 2C11.5 2 12 3.5 12 5V19C12 20.5 11.5 22 9.5 22C4 22 2 18 2 12C2 6 4 2 9.5 2Z"/>
+                        <path d="M14.5 2C12.5 2 12 3.5 12 5V19C12 20.5 12.5 22 14.5 22C20 22 22 18 22 12C22 6 20 2 14.5 2Z"/>
+                        <path d="M7 7H10M7 12H10M7 17H10" opacity="0.5"/>
+                        <path d="M14 7H17M14 12H17M14 17H17" opacity="0.5"/>
                         <circle cx="12" cy="12" r="1.5" fill="#00ffff"/>
                     </svg>
                 </div>
                 <h3 class="text-xl font-black mb-4 text-cyan-400 uppercase tracking-widest">ZONKY_MASTER</h3>
                 <p id="p8-desc" class="text-sm text-white leading-relaxed font-bold italic">Arsitektur inti dan kernel penggerak utama seluruh ekosistem digital.</p>
             </div>
-
-            <!-- 9. Quantum Crypto -->
+            <!-- 9. Quantum Sec -->
             <div class="hud-card p-10 rounded-xl border-2 border-purple-500/40 bg-purple-900/5">
                 <i class="fas fa-shield-alt text-purple-400 text-3xl mb-8"></i>
                 <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter">QUANTUM_SEC</h3>
                 <p id="p9-desc" class="text-sm text-slate-400 leading-relaxed">Infrastruktur keamanan data dengan algoritma kriptografi pasca-kuantum.</p>
             </div>
-
-            <!-- 10. Bio-Synthesize IoT -->
+            <!-- 10. Bio Synth IoT -->
             <div class="hud-card p-10 rounded-xl border-l-4 border-emerald-500/40 bg-emerald-900/5">
                 <i class="fas fa-leaf text-emerald-400 text-3xl mb-8"></i>
                 <h3 class="text-xl font-black mb-4 text-white uppercase tracking-tighter">BIO_SYNTH_IoT</h3>
@@ -272,17 +364,16 @@
             <a href="https://github.com/ahmadroyani212-wq" class="text-slate-600 hover:text-cyan-400 transition transform hover:scale-125"><i class="fab fa-github"></i></a>
             <a href="https://wa.me/628123456789" class="text-slate-600 hover:text-cyan-400 transition transform hover:scale-125"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p class="text-[10px] text-slate-700 font-bold uppercase tracking-[1em] break-all">&copy; 2026 // CV_AROY_SOEBANK // SYSTEM_ULTIMATUM</p>
+        <p class="text-[10px] text-slate-700 font-bold uppercase tracking-[1em] break-all">&copy; 2026 // CV_AROY_SOEBANK // AHMAD_ROYANI_SKOM</p>
     </footer>
 
     <script>
         const translations = {
             en: {
                 badge: "CV_AROY_SOEBANK // ELITE_SYSTEM_ARCHITECT",
-                desc: "Systems Architect & Lead Developer specializing in intelligent digital infrastructure, ancient medical solutions, and integrated AI ecosystems.",
-                btnVault: "Access_Repositories", btnContact: "Establish_Signal",
+                desc: "Systems Architect (S.Kom) specializing in intelligent digital infrastructure, Tiktok Ads Expert, and integrated AI ecosystems.",
                 vault: "CV_AROY_<span class='text-cyan-400'>SOEBANK</span>_PROJECT_VAULT",
-                p1: "Cloud retail management with real-time automatic data sync for enterprises.",
+                p1: "Enterprise cloud retail management with automatic real-time data sync.",
                 p2: "Neural networks for autonomous vehicle communication and road infrastructure safety.",
                 p3: "Location-based maternal health system for emergency midwife services.",
                 p4: "Ancient Chinese medical wisdom integrated with modern data diagnostics.",
@@ -295,8 +386,7 @@
             },
             id: {
                 badge: "CV_AROY_SOEBANK // ARSITEK_SISTEM_ELITE",
-                desc: "Sistem Arsitek & Lead Developer mengkhususkan diri pada infrastruktur digital cerdas, solusi medis kuno, dan ekosistem AI terpadu.",
-                btnVault: "Akses_Repositori", btnContact: "Hubungi_Sinyal",
+                desc: "Sistem Arsitek (S.Kom) mengkhususkan diri pada infrastruktur digital cerdas, Tiktok Ads Expert, dan Ekosistem AI terpadu.",
                 vault: "CV_AROY_<span class='text-cyan-400'>SOEBANK</span>_PROYEK_VAULT",
                 p1: "Manajemen retail cloud enterprise dengan sinkronisasi data real-time otomatis.",
                 p2: "Neural network untuk komunikasi kendaraan otonom demi keselamatan jalan.",
@@ -311,10 +401,9 @@
             },
             jp: {
                 badge: "CV_AROY_SOEBANK // 認定システム設計者",
-                desc: "インテリジェントなデジタルインフラ、古代の医療ソリューション、および統合されたAIエコシステムを専門とするシステム設計者。",
-                btnVault: "リポジトリにアクセス", btnContact: "信号を確立する",
+                desc: "インテリジェントなデジタルインフラ、Tiktok広告エキスパート、および統合されたAIエコシステムを専門とするシステム設計者。",
                 vault: "CV_AROY_<span class='text-cyan-400'>SOEBANK</span>_プロジェクト_ボルト",
-                p1: "自動リアルタイムデータ同期を備えた企業向けクラウド小売管理。",
+                p1: "企業向けのリアルタイム自動データ同期を備えたクラウド小売管理。",
                 p2: "道路インフラの安全のための自律走行車通信用ニューラルネットワーク。",
                 p3: "緊急助産師サービスのための位置ベースの母体健康システム。",
                 p4: "古代中国の医学的知恵と現代のデータ診断の統合。",
@@ -327,8 +416,7 @@
             },
             de: {
                 badge: "CV_AROY_SOEBANK // ELITE_SYSTEMARCHITEKT",
-                desc: "Systemarchitekt & Lead Developer spezialisiert auf digitale Infrastruktur, alte medizinische Lösungen und KI-Ökosysteme.",
-                btnVault: "Repositories_Zugriff", btnContact: "Signal_Aufbauen",
+                desc: "Systemarchitekt spezialisiert auf digitale Infrastruktur, Tiktok-Werbeexperte und KI-Ökosysteme.",
                 vault: "CV_AROY_<span class='text-cyan-400'>SOEBANK</span>_PROJEKT_TRESOR",
                 p1: "Cloud-Einzelhandelsmanagement mit automatischer Echtzeit-Datensynchronisation.",
                 p2: "Neuronale Netze für die Kommunikation autonomer Fahrzeuge zur Verkehrssicherheit.",
@@ -336,15 +424,14 @@
                 p4: "Alte chinesische Weisheit integriert in moderne Datendiagnostik.",
                 p5: "Verschlüsseltes Banking-Dashboard mit Audit-Logs und automatisierter Finanzanalyse.",
                 p6: "Digitalisierung von KMUs mit intelligentem POS und Inventarverwaltung.",
-                p7: "Hardware-IoT-Automatisierung für Helmsanierung mittels Trockendampf.",
+                p7: "IoT-Hardware-Automatisierung für Helmsanierung mittels Trockendampf.",
                 p8: "Kernarchitektur und Antriebskernel des gesamten digitalen Ökosystems.",
                 p9: "Datensicherheitsinfrastruktur unter Verwendung von Post-Quanten-Kryptografie.",
                 p10: "Smarte Agrarüberwachung mittels IoT-integrierter Bodenbiometriesensoren."
             },
             zh: {
                 badge: "CV_AROY_SOEBANK // 认证系统架构师",
-                desc: "系统架构师和首席开发人员，专注于智能数字基础设施、古代医学解决方案和集成AI生态系统。",
-                btnVault: "访问库", btnContact: "建立信号",
+                desc: "系统架构师，专注于智能数字基础设施、Tiktok广告专家和集成AI生态系统。",
                 vault: "CV_AROY_<span class='text-cyan-400'>SOEBANK</span>_项目_库",
                 p1: "具有自动实时数据同步功能的企业云零售管理。",
                 p2: "用于自主车辆通信以确保道路基础设施安全的神经网络。",
@@ -359,10 +446,15 @@
             }
         };
 
+        function toggleModal() {
+            const modal = document.getElementById('cv-modal');
+            modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+            document.body.style.overflow = modal.style.display === 'block' ? 'none' : 'auto';
+        }
+
         function changeLang(lang) {
             document.getElementById('badge').innerHTML = translations[lang].badge;
             document.getElementById('hero-desc').innerHTML = translations[lang].desc;
-            document.getElementById('btn-vault').innerText = translations[lang].btnVault;
             document.getElementById('vault-title').innerHTML = translations[lang].vault;
             for(let i=1; i<=10; i++){
                 document.getElementById('p'+i+'-desc').innerText = translations[lang]['p'+i];
@@ -373,3 +465,4 @@
     </script>
 </body>
 </html>
+
